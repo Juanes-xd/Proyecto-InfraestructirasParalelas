@@ -1,5 +1,67 @@
 # Estrategia de Trading con Aprendizaje No Supervisado
 
+## ¿Qué hace este proyecto?
+
+Este proyecto desarrolla un **sistema de trading automatizado** que utiliza inteligencia artificial para tomar decisiones de inversión en el mercado de valores. El sistema:
+
+1. **Analiza automáticamente** todas las acciones del S&P 500 (las 500 empresas más grandes de EE.UU.)
+2. **Calcula indicadores técnicos** como RSI, MACD, Bandas de Bollinger para cada acción
+3. **Agrupa acciones similares** usando algoritmos de machine learning (clustering K-Means)
+4. **Selecciona las mejores acciones** basándose en patrones de momentum
+5. **Optimiza el portafolio** para maximizar retornos ajustados por riesgo
+6. **Rebalancea mensualmente** para mantener la estrategia actualizada
+7. **Compara el rendimiento** contra el mercado (índice S&P 500)
+
+### ¿Por qué es innovador?
+
+- **Combina conocimiento financiero con IA**: En lugar de usar clustering aleatorio, predefinimos centroides basados en niveles RSI (30, 45, 55, 70)
+- **Selección automática**: El sistema identifica automáticamente acciones con momentum alcista (RSI ~70)
+- **Gestión de riesgo**: Limita la inversión máxima por acción (10%) y mantiene diversificación
+- **Backtesting completo**: Prueba la estrategia con 8 años de datos históricos
+
+## ¿Cómo usar este proyecto?
+
+### Prerrequisitos
+- Python 3.8 o superior
+- Jupyter Notebook
+- Conexión a internet (para descargar datos financieros)
+
+### Pasos para ejecutar:
+
+1. **Instalar dependencias** (Ejecutar primera celda del notebook):
+   ```python
+   !pip install yfinance pandas numpy scikit-learn PyPortfolioOpt pandas-ta statsmodels matplotlib
+   ```
+
+2. **Ejecutar en orden** (¡IMPORTANTE!):
+   - **Primero**: Celda 28 - Definir centroides predefinidos
+   - **Segundo**: Celda 24 - Aplicar clustering K-Means
+   - **Después**: Ejecutar todas las demás celdas en orden secuencial
+
+3. **Resultados que obtendrás**:
+   - Gráfico de rendimiento acumulativo de la estrategia vs S&P 500
+   - Tabla con retornos diarios del portafolio
+   - Visualización de clusters de acciones por mes
+   - Métricas de rendimiento y riesgo
+
+### Estructura del análisis:
+- **Sección 1-2**: Descarga de datos y cálculo de indicadores técnicos
+- **Sección 3-4**: Filtrado de liquidez y cálculo de retornos
+- **Sección 5**: Integración de factores Fama-French
+- **Sección 6**: Clustering de acciones usando K-Means
+- **Sección 7-8**: Optimización de portafolio y análisis de rendimiento
+
+### Tiempo de ejecución:
+- **Descarga inicial**: 5-10 minutos (dependiendo de conexión a internet)
+- **Cálculos**: 15-20 minutos (para procesar 8 años de datos de 500+ acciones)
+- **Total**: Aproximadamente 30 minutos para ejecución completa
+
+### Personalización:
+Puedes modificar fácilmente:
+- **Período de análisis**: Cambiar fechas de inicio y fin
+- **Centroides RSI**: Ajustar los valores [30, 45, 55, 70] según tu estrategia
+- **Cluster objetivo**: Cambiar de cluster 3 a otro cluster según tu hipótesis
+- **Restricciones de peso**: Modificar límites mínimos/máximos por acción
 ## Descripción del Proyecto
 
 Este proyecto implementa una estrategia sofisticada de trading cuantitativo utilizando técnicas de aprendizaje automático no supervisado para identificar patrones en los mercados financieros. La estrategia utiliza clustering K-Means para agrupar acciones similares basándose en indicadores técnicos y características fundamentales, luego optimiza los pesos del portafolio usando principios de la Teoría Moderna de Portafolios.
