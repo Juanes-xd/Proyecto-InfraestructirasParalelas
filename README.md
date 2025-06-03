@@ -1,4 +1,4 @@
-# Estrategia de Trading con Aprendizaje No Supervisado
+# Estrategia de Trading con Aprendizaje No Supervisado - Primer miniproyecto
 
 ## ¿Qué hace este proyecto?
 
